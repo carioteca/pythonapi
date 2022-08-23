@@ -3,10 +3,23 @@ from flask_pymongo import PyMongo
 import requests
 import random
 
+
+
 app = Flask(__name__)
 app.config["MONGO_DBNAME"]='universo'
 app.config["MONGO_URI"]='mongodb://localhost:27017/universo'
 mongo = PyMongo(app)
+
+
+#- Adicionar um planeta (com nome, clima e terreno) - Listar planetas - Buscar por nome - Buscar por ID - Remover planeta
+"""
+dado um planeta aleatório da franquia, perguntar como
+seria o clima, o terreno e em quantos filmes da franquia ele apareceu.
+
+Para auxiliar quem for apresentar a brincadeira, queremos desenvolver uma aplicação
+que pegue aleatoriamente um planeta da franquia e exiba seus dados para servir como
+col
+"""
 
 
 def CriandoPlanetaBd():
@@ -30,7 +43,7 @@ def CriandoPlanetaBd():
              print("\n Inserido com sucesso")
              break
       elif(nome != planets and cont == 61):
-            print("\n Infelizmente quantidades de aparições não existe \n\n")
+            print("\n Infelizmente quantidadeds de aparições não existe \n\n")
             break
 
 
@@ -111,6 +124,3 @@ def ExcluirPlanetas(nome):
 
 if __name__ =='__main__':
   app.run(debug=True, use_reloader=False)
-
-
-
